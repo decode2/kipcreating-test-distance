@@ -73,7 +73,7 @@ float AProjectDistanceToGameModeBase::GetClosestActorDistance(AActor* skippedAct
 			continue;
 		}
 
-		float distance = FVector::DistSquared(sourceLocation, actors[i]->GetActorLocation());
+		float distance = (sourceLocation - actors[i]->GetActorLocation()).Size();
 
 		if (distance < currentClosestDistance) {
 
@@ -98,7 +98,7 @@ float AProjectDistanceToGameModeBase::GetFurthestActorDistance(AActor* skippedAc
 			continue;
 		}
 
-		float distance = FVector::DistSquared(sourceLocation, actors[i]->GetActorLocation());
+		float distance = (sourceLocation - actors[i]->GetActorLocation()).Size();
 
 		if (distance > currentFurthestDistance) {
 
