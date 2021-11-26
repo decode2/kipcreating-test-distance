@@ -13,7 +13,7 @@ struct FDistanceStruct {
 
 	FORCEINLINE FDistanceStruct();
 
-	explicit FORCEINLINE FDistanceStruct(float FloatValue, float FloatDistanceMin, float FloatDistanceMax);
+	explicit FORCEINLINE FDistanceStruct(float FloatValue, float FloatDistanceMin, float FloatDistanceMax, AActor* AActorClosestToAvgPtr);
 
 	UPROPERTY(BlueprintReadWrite)
 	float averageDistance;
@@ -24,6 +24,8 @@ struct FDistanceStruct {
 	UPROPERTY(BlueprintReadWrite)
 	float distanceMax;
 
+	UPROPERTY(BlueprintReadWrite)
+	AActor* closestToAvgActor;
 
 };
 
@@ -31,7 +33,7 @@ FORCEINLINE FDistanceStruct::FDistanceStruct()
 {
 }
 
-FORCEINLINE FDistanceStruct::FDistanceStruct(const float FloatValue, const float FloatDistanceMin, const float FloatDistanceMax) : averageDistance(FloatValue), distanceMin(FloatDistanceMin), distanceMax(FloatDistanceMax)
+FORCEINLINE FDistanceStruct::FDistanceStruct(const float FloatValue, const float FloatDistanceMin, const float FloatDistanceMax, AActor* AActorClosestToAvgPtr) : averageDistance(FloatValue), distanceMin(FloatDistanceMin), distanceMax(FloatDistanceMax), closestToAvgActor(AActorClosestToAvgPtr)
 {
 }
 
